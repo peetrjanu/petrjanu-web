@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // GitHub Pages SPA redirect fix
+    // Uloží původní URL a přesměruje na index
+    var path = window.location.pathname;
+    sessionStorage.setItem('redirect', path);
+    window.location.replace('/');
+  </script>
+</head>
+<body></body>
+</html>

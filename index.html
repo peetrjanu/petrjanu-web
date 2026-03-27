@@ -49,9 +49,9 @@
 
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 58px;
+      font-size: 50px;
       line-height: 1.08;
-      letter-spacing: -1.5px;
+      letter-spacing: -1.2px;
       color: var(--ink);
       margin-bottom: 16px;
     }
@@ -62,7 +62,7 @@
     }
 
     .hero-perex {
-      font-size: 18px;
+      font-size: 16.5px;
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 36px;
@@ -95,7 +95,7 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       width: 100%;
-      max-width: 380px;
+      max-width: 460px;
       aspect-ratio: 3/4;
       display: flex;
       align-items: flex-end;
@@ -104,9 +104,9 @@
     }
 
     .hero-photo-wrap img {
-      width: 90%;
+      width: 100%;
       object-fit: contain;
-      object-position: bottom;
+      object-position: bottom center;
       display: block;
       mix-blend-mode: multiply;
       filter: contrast(1.05);
@@ -318,7 +318,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="Logo-pj.png" alt="Petr Janů">
+    <img src="logo-pj.png" alt="Petr Janů">
   </a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -426,6 +426,23 @@
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
+
+  // GitHub Pages URL redirect fix
+  (function() {
+    var redirect = sessionStorage.getItem('redirect');
+    if (redirect && redirect !== '/') {
+      sessionStorage.removeItem('redirect');
+      // Mapování cest na soubory
+      var map = {
+        '/kontakt': 'kontakt.html',
+        '/kontakt.html': 'kontakt.html',
+        '/digitalni-ucitel': 'digitalni-ucitel.html',
+        '/digitalni-ucitel.html': 'digitalni-ucitel.html',
+      };
+      var target = map[redirect] || map[redirect.replace(/\/$/, '')];
+      if (target) window.location.replace('/' + target);
+    }
+  })();
 </script>
 </body>
 </html>
