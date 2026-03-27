@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontakt — Petr Janů. Napište mi a domluvíme bezplatnou konzultaci.">
+  <title>Kontakt — Petr Janů</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    .contact-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ---- LEFT ---- */
+    .contact-left .section-label { margin-bottom: 10px; }
+
+    .contact-left h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: var(--ink);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .contact-left h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-left p {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    /* Signature */
+    .signature-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .signature-block img.sig-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      background: var(--bg2);
+    }
+
+    .sig-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .sig-text span {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .sig-sign {
+      height: 40px;
+      width: auto;
+      display: block;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+
+    /* Info items */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14.5px;
+      color: var(--ink);
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .info-item a {
+      color: var(--ink);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .info-item a:hover { color: var(--accent); }
+
+    /* ---- FORM ---- */
+    .contact-form-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+    }
+
+    .contact-form-wrap h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .contact-form-wrap p {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.3px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--bg);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232,74,39,0.08);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    .form-note {
+      font-size: 11.5px;
+      color: var(--light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      color: #166534;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        padding: 48px 20px;
+        gap: 40px;
+      }
+
+      .contact-left h1 { font-size: 30px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-pj.png" alt="Petr Janů">
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
+    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Napište mi</a></li>
+  </ul>
+</nav>
+
+<!-- CONTACT -->
+<div class="contact-wrap">
+
+  <!-- LEFT -->
+  <div class="contact-left">
+    <span class="section-label">Kontakt</span>
+    <h1>Pojďme<br>to <em>rozjet</em><br>společně.</h1>
+    <p>Napište mi a do 24 hodin se ozvu zpátky. Rád si promluvím o tom, jak může video marketing pomoci vaší firmě nebo škole.</p>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <a href="mailto:petr@petrjanu.eu">petr@petrjanu.eu</a>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <a href="tel:+420123456789">+420 123 456 789</a>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <span>Česká republika</span>
+      </div>
+    </div>
+
+    <div class="signature-block">
+      <img class="sig-photo" src="foto.png" alt="Petr Janů">
+      <div class="sig-text">
+        <strong>Petr Janů</strong>
+        <span>Video marketing specialista</span>
+        <img class="sig-sign" src="podpis.png" alt="Podpis">
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="contact-form-wrap">
+    <h2>Napište mi</h2>
+    <p>Bezplatná konzultace · Odpovím do 24 hodin</p>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)" action="https://formspree.io/f/VÁŠE_ID" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Jméno</label>
+          <input type="text" id="name" name="name" placeholder="Jan Novák" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="jan@firma.cz" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Typ spolupráce</label>
+        <select id="type" name="type">
+          <option value="">Vyberte...</option>
+          <option value="video-marketing">Video marketing pro firmu</option>
+          <option value="digitalni-ucitel">Digitální učitel 2026 (škola)</option>
+          <option value="konzultace">Konzultace</option>
+          <option value="jine">Jiné</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Zpráva</label>
+        <textarea id="message" name="message" placeholder="Řekněte mi o vašem projektu..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary form-submit">
+        Odeslat zprávu →
+      </button>
+      <p class="form-note">Vaše údaje jsou v bezpečí a nebudou sdíleny třetím stranám.</p>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      ✅ Zpráva odeslána! Ozvu se do 24 hodin.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo-pj.png" alt="Petr Janů">
+  </div>
+  <p>© 2026 Petr Janů · petrjanu.eu</p>
+  <div style="display:flex; gap:20px;">
+    <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function handleSubmit(e) {
+    // If using Formspree, remove this function and let form submit normally
+    // For demo purposes only:
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
