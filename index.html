@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Petr Janů — Získávám firmám zakázky pomocí krátkých videí. Video marketing specialist.">
+  <title>Petr Janů — Video marketing</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 48px 64px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      padding: 5px 13px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: block;
+      animation: blink 1.8s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100%{opacity:1} 50%{opacity:.35}
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 50px;
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.6em;
+      line-height: 0.85;
+      display: inline-block;
+    }
+
+    .hero-perex {
+      font-size: 16.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .cta-sub {
+      font-size: 12px;
+      color: var(--light);
+      margin-left: 4px;
+    }
+
+    /* ---- HERO PHOTO ---- */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hero-photo-wrap {
+      background: linear-gradient(160deg, #f0ede7 0%, #e8e2d8 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      mix-blend-mode: multiply;
+      filter: contrast(1.05);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: -16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    .badge-text {
+      font-size: 12px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ---- INTRO STRIP ---- */
+    .intro-section {
+      background: var(--ink);
+      padding: 48px;
+    }
+
+    .intro-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .intro-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: #fff;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+    }
+
+    .intro-heading em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .intro-text {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+    }
+
+    .intro-text strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    /* ---- REFERENCES ---- */
+    .ref-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .ref-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .ref-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .ref-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      cursor: pointer;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+
+    .ref-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(232,74,39,0.08);
+    }
+
+    .ref-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--border-strong);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .ref-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .ref-type {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .ref-pill {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 48px;
+    }
+
+    .cta-banner-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+      max-width: 500px;
+      line-height: 1.3;
+    }
+
+    .cta-banner h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 20px 40px;
+        gap: 40px;
+      }
+
+      h1 { font-size: 36px; }
+
+      .hero-photo-wrap { max-width: 300px; margin: 0 auto; }
+
+      .intro-section { padding: 40px 20px; }
+      .intro-inner { grid-template-columns: 1fr; gap: 20px; }
+
+      .ref-section { padding: 48px 20px; }
+      .ref-grid { grid-template-columns: 1fr; }
+      .ref-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+      .cta-banner { padding: 48px 20px; }
+      .cta-banner-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo-pj.png" alt="Petr Janů" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <span class="nav-logo-text" style="display:none;">PJ</span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="digitalni-ucitel.html">Digitální učitel 2026</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Spolupráce</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Video marketing specialista</div>
+    <h1>Získávám<br>firmám<br><em>zakázky</em><br>pomocí videí.</h1>
+    <p class="hero-perex">
+      Pomáhám firmám proměnit sociální sítě ve <strong>stabilní zdroj poptávek</strong> — bez zbytečného chaosu, tápání a vyhazování peněz za marketing.
+    </p>
+    <div class="cta-group">
+      <a class="btn-primary" href="kontakt.html">
+        👉 Chci více zákazníků
+      </a>
+      <span class="cta-sub">Bezplatná konzultace · bez závazků</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-photo-wrap">
+      <img src="foto.png" alt="Petr Janů">
+    </div>
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <div class="badge-text">Nyní k dispozici pro nové projekty</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<section class="intro-section">
+  <div class="intro-inner">
+    <h2 class="intro-heading">Sociální sítě jako<br><em>stabilní zdroj</em><br>poptávek.</h2>
+    <p class="intro-text">
+      Pomáhám firmám proměnit sociální sítě ve <strong>stabilní zdroj poptávek</strong> — bez zbytečného chaosu, tápání a vyhazování peněz za marketing. Krátká videa jsou dnes nejefektivnější způsob, jak <strong>zaujmout, přesvědčit a získat zákazníka</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="ref-section">
+  <div class="ref-header">
+    <div>
+      <span class="section-label">Mé projekty</span>
+      <h2>S kým<br>spolupracuji</h2>
+    </div>
+    <a href="kontakt.html" class="btn-outline">Chci podobné výsledky →</a>
+  </div>
+
+  <div class="ref-grid">
+    <div class="ref-card">
+      <div class="ref-num">01</div>
+      <div class="ref-name">Namche Outdoor</div>
+      <div class="ref-type">Outdoor vybavení &amp; e-shop</div>
+      <span class="ref-pill">Video marketing</span>
+    </div>
+    <div class="ref-card">
+      <div class="ref-num">02</div>
+      <div class="ref-name">ISŠ Vysoké nad Jizerou</div>
+      <div class="ref-type">Střední škola</div>
+      <span class="ref-pill">Výuka informatiky & propagace školy</span>
+    </div>
+    <div class="ref-card">
+      <div class="ref-num">03</div>
+      <div class="ref-name">ZŠ Mnichovice</div>
+      <div class="ref-type">Základní škola</div>
+      <span class="ref-pill">Web & výuka informatiky</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Jste škola nebo firma?<br>Mám pro vás <em>konkrétní řešení.</em></h2>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <a href="digitalni-ucitel.html" class="btn-primary">Digitální učitel 2026</a>
+      <a href="kontakt.html" class="btn-outline">Napište mi</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo-pj.png" alt="Petr Janů">
+  </div>
+  <p>© 2026 Petr Janů · petrjanu.eu</p>
+  <div style="display:flex; gap:20px;">
+    <a href="digitalni-ucitel.html">Digitální učitel 2026</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // GitHub Pages URL redirect fix
+  (function() {
+    var redirect = sessionStorage.getItem('redirect');
+    if (redirect && redirect !== '/') {
+      sessionStorage.removeItem('redirect');
+      // Mapování cest na soubory
+      var map = {
+        '/kontakt': 'kontakt.html',
+        '/kontakt.html': 'kontakt.html',
+        '/digitalni-ucitel': 'digitalni-ucitel.html',
+        '/digitalni-ucitel.html': 'digitalni-ucitel.html',
+      };
+      var target = map[redirect] || map[redirect.replace(/\/$/, '')];
+      if (target) window.location.replace('/' + target);
+    }
+  })();
+</script>
+</body>
+</html>
